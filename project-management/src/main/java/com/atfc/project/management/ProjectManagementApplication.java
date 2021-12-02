@@ -1,13 +1,13 @@
-package com.atfc.project.managment;
+package com.atfc.project.management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjectManagmentApplication {
+public class ProjectManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectManagmentApplication.class, args);
+		SpringApplication.run(ProjectManagementApplication.class, args);
 	}
 
 }
