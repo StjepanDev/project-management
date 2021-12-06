@@ -1,25 +1,57 @@
 package com.atfc.project.management.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Employee {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long emloyeeId;
+	private long employeeId;
 	private String firstName;
 	private String lastName;
 	
 	
-	public long getEmloyeeId() {
-		return emloyeeId;
+	
+	@ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST},
+			    fetch = FetchType.LAZY)
+	
+	@JoinTable(name="project_employee",
+    joinColumns=@JoinColumn(name="employee_id"),
+    inverseJoinColumns=@JoinColumn(name="project_id"))
+	
+	
+	private List <Project> theProjects;
+	
+	
+    public Employee() {
+		
 	}
-	public void setEmloyeeId(long emloyeeId) {
-		this.emloyeeId = emloyeeId;
+	
+    
+    public Employee(String firstName, String lastName, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+    
+	
+	public long getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(long employeeId) {
+		this.employeeId = employeeId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -42,16 +74,13 @@ public class Employee {
 	private String email;
 
 
-	public Employee(String firstName, String lastName, String email) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+	public List<Project> getTheProjects() {
+		return theProjects;
 	}
-	
-	
-	public Employee() {
-		
+
+
+	public void setTheProjects(List<Project> theProjects) {
+		this.theProjects = theProjects;
 	}
 	
 	
