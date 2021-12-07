@@ -23,15 +23,17 @@ public class HomeController {
 	
     @GetMapping("/") 
 	public String displayHome(Model model) {
+    	// Model in spring framework is used to send and recive data from view..object to interact with view
     	
+    	//querying db for projects and employees...
     	List<Project> projects = proRepo.findAll();
-		 model.addAttribute("projects",projects);
+		 model.addAttribute("projectsList",projects);
 		 
 		 List<Employee> employees = empRepo.findAll();
 		 model.addAttribute("employeesList",employees);
+		  
 		 
-		 
-		 return "home";
+		 return "main/home";
 	} 
 	
 }

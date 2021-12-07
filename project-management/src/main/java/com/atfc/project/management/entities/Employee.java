@@ -31,7 +31,7 @@ public class Employee {
     inverseJoinColumns=@JoinColumn(name="project_id"))
 	
 	
-	private List <Project> theProjects;
+	private List <Project> projects;
 	
 	
     public Employee() {
@@ -74,13 +74,19 @@ public class Employee {
 	private String email;
 
 
-	public List<Project> getTheProjects() {
-		return theProjects;
+	public List<Project> getProjects() {
+		return projects;
 	}
 
 
-	public void setTheProjects(List<Project> theProjects) {
-		this.theProjects = theProjects;
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+
+
+	public void setProject(Project project) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -20,7 +20,7 @@
 	        </tr>
 	    </thead>
 	  <tbody>
-	       <tr th:each="aProject : ${projects}">
+	       <tr th:each="aProject : ${projectsList}">
 	           <td th:text="${aProject.name}"/>
 	           <td th:text="${aProject.stage}"/>
 	         </tr >
@@ -42,6 +42,7 @@
 	       <tr th:each="aEmployee : ${employeesList}">
 	           <td th:text="${aEmployee.firstName}"/>
 	           <td th:text="${aEmployee.lastName}"/>
+	           <td th:text="${aEmployee.email}"/>
 	         </tr >
 	  </tbody>
 	</table>	

@@ -55,7 +55,7 @@ public class ProjectController {
 		 Iterable<Employee> chosenEmployees = empRepo.findAllById(employees);
 		 
 		 for(Employee emp : chosenEmployees) {
-			 emp.setTheProject(project);
+			 emp.setProject(project);
 			 empRepo.save(emp);
 		 }
 		
